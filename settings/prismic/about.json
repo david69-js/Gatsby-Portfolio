@@ -1,0 +1,97 @@
+{
+    "Main": {
+      "about_title": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label": "About title",
+          "placeholder": "Add a title"
+        }
+      },
+      "about_image": {
+        "type": "Image",
+        "config": {
+          "constraint": {},
+          "thumbnails": [],
+          "label": "About Image"
+        }
+      },
+      "about_description": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl",
+          "label": "about description",
+          "placeholder": "Add Descriptino"
+        }
+      },
+      "sub_title_one": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "sub_title one"
+        }
+      },
+      "images_group_one": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "Image"
+              }
+            }
+          },
+          "label": "Images group one"
+        }
+      },
+      "sub_title_two": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "sub title two"
+        }
+      },
+      "images_group_two": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "image"
+              }
+            }
+          },
+          "label": "images group two"
+        }
+      },
+      "sub_title_group_three": {
+        "type": "StructuredText",
+        "config": {
+          "single": "heading1, heading2, heading3, heading4, heading5, heading6",
+          "label": "sub title group three"
+        }
+      },
+      "image_group_three": {
+        "type": "Group",
+        "config": {
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "constraint": {},
+                "thumbnails": [],
+                "label": "image"
+              }
+            }
+          },
+          "label": "image group three"
+        }
+      }
+    }
+  }

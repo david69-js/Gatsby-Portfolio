@@ -1,0 +1,65 @@
+#about{
+   position: relative;
+   color: white;
+   .about{
+    @media (max-width: 500px){
+        height: auto !important;
+        padding: 35px 0;
+    }
+   }
+    .about-container{
+        text-align: center;
+        display:flex;
+        flex-direction: column;
+        gap: 40px;
+        @media (min-width: 767px){
+            width: 720px;
+        }
+        .about-descrition{
+            color: rgb(143 143 143);
+            text-shadow: #636a6c 0.1em 0.1em 0.2em;
+            font-size: 18px;
+            padding: 0 20px;
+            @media (min-width: 767px){
+                font-size: 20px;
+                padding: 0;
+            }
+        }
+        .about-subtitle{
+            font-size: 28px;
+            font-weight: bold;
+            @media (min-width: 767px){
+                font-size: 50px;
+            }
+        }
+        .green-color{
+            color: rgb(19 131 161);
+            text-shadow: #023142 0.1em 0.1em 0.2em;        
+        }
+        .about-skills,
+        .about-learning,
+        .about-also_worked
+        {
+            padding: 0 20px;
+            margin-top: 20px;
+            @media (min-width: 767px){
+                padding: 0;
+            }
+            .about-image {
+                width: fit-content !important;
+            }
+            .image-icon{
+                height: 40px;
+                width: auto !important;
+                margin: 0 auto;
+                @media (min-width: 767px){
+                    height: 50px;
+                }
+            }
+            span{
+                color: rgb(143 143 143);
+                text-shadow: #636a6c 0.1em 0.1em 0.2em;
+            }
+        }
+    }
+}

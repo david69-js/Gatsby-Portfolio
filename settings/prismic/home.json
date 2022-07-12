@@ -1,0 +1,28 @@
+{
+    "Main" : {
+      "home_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label" : "Home title",
+          "placeholder" : "Add a title"
+        }
+      },
+      "home_sub_title" : {
+        "type" : "StructuredText",
+        "config" : {
+          "single" : "heading1,heading2,heading3,heading4,heading5,heading6",
+          "label" : "Home sub title",
+          "placeholder" : "Add a subtitle"
+        }
+      },
+      "home_image" : {
+        "type" : "Image",
+        "config" : {
+          "constraint" : { },
+          "thumbnails" : [ ],
+          "label" : "Home Image"
+        }
+      }
+    }
+  }

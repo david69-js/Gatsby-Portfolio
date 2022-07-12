@@ -1,0 +1,36 @@
+{
+  "Main" : {
+    "logo_header" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : { },
+        "thumbnails" : [ ],
+        "label" : "Logo header"
+      }
+    },
+    "header_navigation" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "slug_page" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph",
+              "label" : "slug page",
+              "placeholder" : "Add Slug"
+            }
+          },
+          "text_link" : {
+            "type" : "StructuredText",
+            "config" : {
+              "multi" : "paragraph",
+              "label" : "Text link",
+              "placeholder" : "Add a text"
+            }
+          }
+        },
+        "label" : "Header Navigation"
+      }
+    }
+  }
+}

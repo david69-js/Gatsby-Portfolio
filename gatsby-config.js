@@ -7,7 +7,10 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-sass`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -29,6 +32,22 @@ module.exports = {
         // theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      },
+    },
+    {
+      resolve: 'gatsby-source-prismic',
+      options: {
+        repositoryName: 'my-projects-port',
+        accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+        shouldDownloadImage: () => true,
+        schemas: {
+          projects: require('./settings/prismic/projects.json'),
+          home: require('./settings/prismic/home.json'),
+          about: require('./settings/prismic/about.json'),
+          header: require('./settings/prismic/header.json'),
+          category: require('./settings/prismic/category.json'),
+        },
+        prismicToolbar: true,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
