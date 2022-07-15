@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const NavigateStyle = styled.div`
     width: 100%;
     position: fixed;
-    background-color:${( { Open }) => Open ? '#000000d4' : '#00000000'};
+    background-color:${( { Open }) => Open ? '#050f12f2' : '#00000000'};
     top: 0;
     right: 0;
     margin-top: 0;

@@ -8,7 +8,8 @@ const Navigate = ({ Open, logo_image, navigation }) => {
     const NavigateListening = useRef(null);
       useEffect(() => {
         if (isBrowser) {
-          const handleScroll = () => {
+          const handleScroll = (event) => {
+            event.preventDefault();
             if (window.scrollY >= document.querySelector('#home').getBoundingClientRect().height-75) return NavigateListening.current.classList.add('navigate-white');      
               NavigateListening.current.classList.remove('navigate-white');
             };

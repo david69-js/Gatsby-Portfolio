@@ -3,6 +3,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import StyleBackground from '../styleComponents/StyleBackground'
 import SmoothScroll from '../hooks/smooth-scroll';
 import { isBrowser } from '../globlas/window';
+import MyImage from '../hooks/LazyLoad';
 const Home = () => {
     const data = useStaticQuery(graphql`
     query HomePrismicQuery {
@@ -29,7 +30,8 @@ const Home = () => {
     const [moveImage, setMoveImage] = useState(0);
     useEffect(() => {
       if (isBrowser) {
-          const handleScroll = () => {
+          const handleScroll = event => {
+            event.preventDefault();
             if (window.scrollY) {
               setMoveImage(window.scrollY)
             }
@@ -54,7 +56,7 @@ const Home = () => {
     <div id="home" >
      
         <StyleBackground bg_image={home_image.url} className="content">
-        <img className="md:absolute mx-auto gitf-image-rigth" alt="brook" src="https://media2.giphy.com/media/IcpFUnxQ4F8tYSuE8u/giphy.gif?cid=ecf05e4785hqjoi4n5ww340ljgo00kk12lbfko40p9vf5n1t&rid=giphy.gif&ct=s"  />
+           <MyImage className="md:absolute mx-auto gitf-image-rigth" image={`https://media3.giphy.com/media/kdACZLeIqjhoQ983qi/giphy.gif?cid=ecf05e470slye9ad9aod276w1yj48ax65wyem9qqloae9dgu&rid=giphy.gif&ct=s`}  />
             <div className="content__main-title">
               <div className="box">
                   <div className="title">
@@ -78,8 +80,12 @@ const Home = () => {
           </div>
           <Link  to={'#about'} onClick={SmoothScroll} className="triangle_down"></Link>
         <div className="content__image flex flex-wrap justify-between">
-          <img className="content__image-cole" alt="cole" style={cole} src="https://media2.giphy.com/media/1jJyoKURSBblwPOBXS/giphy.gif?cid=ecf05e47syibrjmhd052dqtm59t5qer8b2air7frwdwfhyfs&rid=giphy.gif&ct=s" height="100" width="100px" />
-          <img className="content__image-cole rigth-0" alt="kanye" style={kanye} src="https://media0.giphy.com/media/hu0f2AhuKGrb93mEX8/giphy.gif?cid=ecf05e47m08rf9rs2zehcy50lq0bhmqrbywinv997qetdosw&rid=giphy.gif&ct=s" height="100" width="100px" />
+        <MyImage 
+          style={cole}  
+          className="content__image-cole" 
+          image={`https://media2.giphy.com/media/1jJyoKURSBblwPOBXS/giphy.gif?cid=ecf05e47syibrjmhd052dqtm59t5qer8b2air7frwdwfhyfs&rid=giphy.gif&ct=s`} />
+        <MyImage style={kanye} className="content__image-cole rigth-0" image="https://media0.giphy.com/media/hu0f2AhuKGrb93mEX8/giphy.gif?cid=ecf05e47m08rf9rs2zehcy50lq0bhmqrbywinv997qetdosw&rid=giphy.gif&ct=s"/>
+         
         </div> 
         </StyleBackground>
     </div>

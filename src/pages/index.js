@@ -1,6 +1,6 @@
 import * as React from "react"
 import About from "../components/About"
-import Home from "../components/Home"
+import Home from "../components/heroHome"
 
 import Layout from "../components/layout"
 import Projects from "../components/Projects"

@@ -1,7 +1,11 @@
 #home{
     position: relative;
+    scroll-snap-align: start;
 }
-
+.content__image-cole{
+  width:100px;
+  height:100px;
+}
 .triangle_down {
     position: absolute;
     bottom: 100px;
@@ -20,7 +24,6 @@
    
   }
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:700');
 
 //main title
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400|Poppins:300,400,800&display=swap');
@@ -303,6 +306,6 @@
          top: null;
          width: 250px;
          right: 10%;
-         transform: translate(32%, -100%);
+         transform: translate(32%, 0%);
     }
 }
