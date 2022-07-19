@@ -19,6 +19,16 @@ html{
 #about, #home, #projects{
     background: black !important;
 }
+body::-webkit-scrollbar-track {
+    background-color: #6283adb8 !important;
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: rgb(0 6 187 / 46%);
+  }
+  body::-webkit-scrollbar {
+    width: 5px; /*ancho del scroll vertical*/
+    height: 2px; /*alto del scroll horizontal*/
+  }
 img, h1, h2, h3, h4, h5, h6{
     pointer-events: none;
     -drag: none;

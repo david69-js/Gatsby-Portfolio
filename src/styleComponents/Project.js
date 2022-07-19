@@ -13,7 +13,7 @@ const Project = styled.div`
         object-fit:cover;
         object-position:50% 50%;
         .project-content{
-          backdrop-filter: blur(4px);
+          //backdrop-filter: blur(4px);
           width: 100%;
           height: 100%;
         }
