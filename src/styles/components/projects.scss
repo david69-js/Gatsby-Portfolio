@@ -10,7 +10,19 @@
     width: 90%;
     justify-content: space-around;
 }
-
+@media (max-width: 1200px){
+    .bg-projects{
+        height: auto !important;
+    }    
+    .main {
+        overflow-x: hidden;
+        flex-wrap: wrap;
+        justify-content:center;
+    }
+    .wrapper {
+        width: auto;
+    }
+}
 .card {
     width: 280px;
     height: 360px;
