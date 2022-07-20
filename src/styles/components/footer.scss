@@ -8,8 +8,11 @@ footer{
     }
 }
 .footer_title {
-    color: #5384cdcc;
-	font-size: 70px;  
+  color: #5384cdcc;
+	font-size: 38px;  
+  @media (min-width: 1024px){
+    font-size: 70px;
+  }
 	font-weight: 900;
 	text-shadow: 
     -0.0075em 0.0075em 0 mix(#a1797e, #e91e63, 94%),
