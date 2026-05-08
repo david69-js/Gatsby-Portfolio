@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@prismicio/client": "^7.16.0",
@@ -14,17 +15,18 @@
     "@prismicio/richtext": "^2.1.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-
     "react-lazy-load-image-component": "^1.6.0",
     "react-router-dom": "^7.4.0",
     "sass": "^1.77.0",
     "styled-components": "^6.1.0"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.36.3",
     "@vitejs/plugin-react": "^4.4.0",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.0",
-    "vite": "^6.3.0"
+    "vite": "^6.3.0",
+    "wrangler": "^4.90.0"
   }
 }
