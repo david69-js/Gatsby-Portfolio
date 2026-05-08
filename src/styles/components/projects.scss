@@ -43,16 +43,15 @@
   top: 16px;
   left: 16px;
   z-index: 2;
-  padding: 4px 14px;
+  padding: 6px 16px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #1483a1;
   color: white;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
 }
 
 .card-body {
