@@ -9,14 +9,12 @@ const About = () => {
   const { data } = usePrismicData('about')
   const aboutData = data?.[0]?.data
 
-  if (!aboutData) return null
-
   const {
     about_title, about_description, about_image,
-    sub_title_one, images_group_one,
+    sub_title_one, images_group_one, 
     sub_title_two, images_group_two,
     sub_title_group_three, image_group_three,
-  } = aboutData
+  } = aboutData || {}
 
   const getAllImages = (imgs, block) =>
     imgs?.map((item, index) => (

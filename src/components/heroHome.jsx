@@ -11,28 +11,27 @@ const Home = () => {
 
   const coleRef = useRef(null)
   const kanyeRef = useRef(null)
+  const rafId = useRef(null)
 
   useEffect(() => {
     const cole = coleRef.current
     const kanye = kanyeRef.current
     if (!cole || !kanye) return
 
-    let ticking = false
     const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const moveImage = window.scrollY
-          const factor = window.innerWidth <= 767 ? 3 : 2
-          cole.style.transform = 'translateX(' + moveImage / factor + '%) scaleX(1)'
-          kanye.style.transform = 'translateX(' + -(moveImage / factor) + '%) scaleX(-1)'
-          ticking = false
-        })
-        ticking = true
-      }
+      rafId.current = requestAnimationFrame(() => {
+        const moveImage = window.scrollY
+        const factor = window.innerWidth <= 767 ? 3 : 2
+        cole.style.transform = 'translateX(' + moveImage / factor + '%) scaleX(1)'
+        kanye.style.transform = 'translateX(' + -(moveImage / factor) + '%) scaleX(-1)'
+      })
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (rafId.current) cancelAnimationFrame(rafId.current)
+    }
   }, [])
 
   return (
@@ -65,24 +64,16 @@ const Home = () => {
         </div>
         <a href={'#about'} onClick={SmoothScroll} className="triangle_down"></a>
         <div className="content__image flex flex-wrap justify-between">
-          <div
+          <MyImage
             ref={coleRef}
             className="content__image-cole"
-            style={{ position: 'sticky' }}
-          >
-            <MyImage
-              image="https://media2.giphy.com/media/1jJyoKURSBblwPOBXS/giphy.gif?cid=ecf05e47syibrjmhd052dqtm59t5qer8b2air7frwdwfhyfs&rid=giphy.gif&ct=s"
-            />
-          </div>
-          <div
+            image="https://media2.giphy.com/media/1jJyoKURSBblwPOBXS/giphy.gif?cid=ecf05e47syibrjmhd052dqtm59t5qer8b2air7frwdwfhyfs&rid=giphy.gif&ct=s"
+          />
+          <MyImage
             ref={kanyeRef}
             className="content__image-cole rigth-0"
-            style={{ position: 'sticky' }}
-          >
-            <MyImage
-              image="https://media0.giphy.com/media/hu0f2AhuKGrb93mEX8/giphy.gif?cid=ecf05e47m08rf9rs2zehcy50lq0bhmqrbywinv997qetdosw&rid=giphy.gif&ct=s"
-            />
-          </div>
+            image="https://media0.giphy.com/media/hu0f2AhuKGrb93mEX8/giphy.gif?cid=ecf05e47m08rf9rs2zehcy50lq0bhmqrbywinv997qetdosw&rid=giphy.gif&ct=s"
+          />
         </div>
       </StyleBackground>
     </div>
