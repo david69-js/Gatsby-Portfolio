@@ -3,15 +3,15 @@ import styled from 'styled-components'
 const NavigateStyle = styled.div`
     width: 100%;
     position: fixed;
-    background-color:${( { Open }) => Open ? '#050f12f2' : '#00000000'};
+    background-color:${( { $open }) => $open ? '#050f12f2' : '#00000000'};
     top: 0;
     right: 0;
     margin-top: 0;
     transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
     z-index:1000;
-    height:${( { Open }) => Open ? '100%' : '100%'};
+    height:${( { $open }) => $open ? '100%' : '100%'};
     @media( max-width: 767px){
-        transform: ${( { Open }) => Open ? 'translateX(0)' : 'translateX(100%)'};
+        transform: ${( { $open }) => $open ? 'translateX(0)' : 'translateX(100%)'};
     }
     @media (min-width: 767px){
         height:75px;
@@ -25,7 +25,7 @@ const NavigateStyle = styled.div`
         opacity: 0.5;
         top: 0;
         left: 0;
-        transform: ${( { Open }) => Open ? 'translateX(0)' : 'translateX(100%)'};
+        transform: ${( { $open }) => $open ? 'translateX(0)' : 'translateX(100%)'};
         @media (min-width: 767px){
             transform: translateX(-100%);
         }

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 const StyleBackground = styled.div`
-    background-image:linear-gradient(rgb(0 0 0 / 80%),rgb(24 30 72 / 50%)), url( ${( { bg_image }) => bg_image});
+    background-image:linear-gradient(rgb(0 0 0 / 80%),rgb(24 30 72 / 50%)), url( ${( { $bg_image }) => $bg_image});
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

@@ -6,7 +6,7 @@ const Project = styled.div`
         justify-content: center;
         align-items: center;
         font-size: 40px;
-        background-image: url( ${( { bg_image }) => bg_image});
+        background-image: url( ${( { $bg_image }) => $bg_image});
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
