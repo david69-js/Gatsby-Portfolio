@@ -1,3 +1,4 @@
+import { memo } from "react"
 import Burger from "../shared/nav/Burger"
 
 const Header = ({ navItems, logoNav }) => (
@@ -6,4 +7,4 @@ const Header = ({ navItems, logoNav }) => (
   </header>
 )
 
-export default Header
+export default memo(Header)

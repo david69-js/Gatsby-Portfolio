@@ -1,3 +1,4 @@
+import { memo } from "react"
 import MyImage from '../hooks/LazyLoad'
 import Github from '../images/github.png'
 import Linkedin from '../images/in.png'
@@ -30,4 +31,4 @@ const Footer = () => (
   </footer>
 )
 
-export default Footer
+export default memo(Footer)

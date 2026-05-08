@@ -1,3 +1,4 @@
+import { memo } from "react"
 import Header from "./header"
 import "../styles/index.scss"
 import Footer from "./Footer"
@@ -18,4 +19,4 @@ const Layout = ({ children }) => {
   )
 }
 
-export default Layout
+export default memo(Layout)

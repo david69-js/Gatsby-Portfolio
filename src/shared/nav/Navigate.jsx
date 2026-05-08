@@ -35,7 +35,7 @@ const Navigate = ({ $open, logo_image, navigation }) => {
       <div className="hidde"></div>
       <div className="nav-links justify-between container mx-auto">
         {logo_image && (
-          <img src={logo_image} width="100px" alt="code" />
+          <img src={logo_image} width="100px" alt="code" loading="lazy" />
         )}
         <ul className="nav flex items-center flex-col md:flex-row">
           {navigation?.map((item, index) => (

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { memo, useEffect, useRef } from 'react'
 import { usePrismicData } from '../prismic/hooks'
 import StyleBackground from '../styleComponents/StyleBackground'
 import SmoothScroll from '../hooks/smooth-scroll'
@@ -80,4 +80,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default memo(Home)
