@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react'
-
+import { useEffect, useRef } from 'react'
 import { usePrismicData } from '../prismic/hooks'
 import StyleBackground from '../styleComponents/StyleBackground'
 import SmoothScroll from '../hooks/smooth-scroll'
-import { isBrowser } from '../globlas/window'
 import MyImage from '../hooks/LazyLoad'
 
 const Home = () => {
@@ -11,35 +9,31 @@ const Home = () => {
   const homeData = data?.[0]?.data
   const { home_image, home_sub_title, home_title } = homeData || {}
 
-  const [moveImage, setMoveImage] = useState(0)
+  const coleRef = useRef(null)
+  const kanyeRef = useRef(null)
 
   useEffect(() => {
-    if (isBrowser) {
-      const handleScroll = (event) => {
-        event.preventDefault()
-        if (window.scrollY) {
-          setMoveImage(window.scrollY)
-        }
-      }
+    const cole = coleRef.current
+    const kanye = kanyeRef.current
+    if (!cole || !kanye) return
 
-      window.addEventListener('scroll', handleScroll)
-      return () => {
-        window.removeEventListener('scroll', handleScroll)
+    let ticking = false
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const moveImage = window.scrollY
+          const factor = window.innerWidth <= 767 ? 3 : 2
+          cole.style.transform = 'translateX(' + moveImage / factor + '%) scaleX(1)'
+          kanye.style.transform = 'translateX(' + -(moveImage / factor) + '%) scaleX(-1)'
+          ticking = false
+        })
+        ticking = true
       }
     }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const moveDeskOrMobile = isBrowser ? (window.innerWidth <= 767 ? 3 : 2) : null
-
-  const cole = {
-    transform: 'translateX(' + moveImage / moveDeskOrMobile + '%) scaleX(1)',
-    position: 'sticky',
-  }
-
-  const kanye = {
-    transform: 'translateX(' + -(moveImage / moveDeskOrMobile) + '%) scaleX(-1)',
-    position: 'sticky',
-  }
 
   return (
     <div id="home">
@@ -71,16 +65,24 @@ const Home = () => {
         </div>
         <a href={'#about'} onClick={SmoothScroll} className="triangle_down"></a>
         <div className="content__image flex flex-wrap justify-between">
-          <MyImage
-            style={cole}
+          <div
+            ref={coleRef}
             className="content__image-cole"
-            image="https://media2.giphy.com/media/1jJyoKURSBblwPOBXS/giphy.gif?cid=ecf05e47syibrjmhd052dqtm59t5qer8b2air7frwdwfhyfs&rid=giphy.gif&ct=s"
-          />
-          <MyImage
-            style={kanye}
+            style={{ position: 'sticky' }}
+          >
+            <MyImage
+              image="https://media2.giphy.com/media/1jJyoKURSBblwPOBXS/giphy.gif?cid=ecf05e47syibrjmhd052dqtm59t5qer8b2air7frwdwfhyfs&rid=giphy.gif&ct=s"
+            />
+          </div>
+          <div
+            ref={kanyeRef}
             className="content__image-cole rigth-0"
-            image="https://media0.giphy.com/media/hu0f2AhuKGrb93mEX8/giphy.gif?cid=ecf05e47m08rf9rs2zehcy50lq0bhmqrbywinv997qetdosw&rid=giphy.gif&ct=s"
-          />
+            style={{ position: 'sticky' }}
+          >
+            <MyImage
+              image="https://media0.giphy.com/media/hu0f2AhuKGrb93mEX8/giphy.gif?cid=ecf05e47m08rf9rs2zehcy50lq0bhmqrbywinv997qetdosw&rid=giphy.gif&ct=s"
+            />
+          </div>
         </div>
       </StyleBackground>
     </div>

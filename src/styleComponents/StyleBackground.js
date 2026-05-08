@@ -6,7 +6,7 @@ const StyleBackground = styled.div`
     background-position: center;
     object-fit:cover;
     object-position:50% 50%;
-    background-attachment:fixed;
+
     @media all and (orientation:portrait){
         height: 100vh;
     }
