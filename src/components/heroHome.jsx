@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+
 import { usePrismicData } from '../prismic/hooks'
 import StyleBackground from '../styleComponents/StyleBackground'
 import SmoothScroll from '../hooks/smooth-scroll'
@@ -69,7 +69,7 @@ const Home = () => {
           </div>
           AweSoMe!
         </div>
-        <Link to={'#about'} onClick={SmoothScroll} className="triangle_down"></Link>
+        <a href={'#about'} onClick={SmoothScroll} className="triangle_down"></a>
         <div className="content__image flex flex-wrap justify-between">
           <MyImage
             style={cole}

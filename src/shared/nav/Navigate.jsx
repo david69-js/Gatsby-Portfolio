@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
 import NavigateStyle from '../../styleComponents/Navigate'
 import SmoothScroll from '../../hooks/smooth-scroll'
@@ -9,17 +8,24 @@ const Navigate = ({ $open, logo_image, navigation }) => {
 
   useEffect(() => {
     if (isBrowser) {
-      const handleScroll = (event) => {
-        event.preventDefault()
-        const homeEl = document.querySelector('#home')
-        if (!homeEl) return
-        if (window.scrollY >= homeEl.getBoundingClientRect().height - 75) {
-          return NavigateListening.current.classList.add('navigate-white')
+      let ticking = false
+      const handleScroll = () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            const homeEl = document.querySelector('#home')
+            if (!homeEl) return
+            if (window.scrollY >= homeEl.getBoundingClientRect().height - 75) {
+              NavigateListening.current?.classList.add('navigate-white')
+            } else {
+              NavigateListening.current?.classList.remove('navigate-white')
+            }
+            ticking = false
+          })
+          ticking = true
         }
-        NavigateListening.current.classList.remove('navigate-white')
       }
 
-      window.addEventListener('scroll', handleScroll)
+      window.addEventListener('scroll', handleScroll, { passive: true })
       return () => window.removeEventListener('scroll', handleScroll)
     }
   }, [])
@@ -34,12 +40,12 @@ const Navigate = ({ $open, logo_image, navigation }) => {
         <ul className="nav flex items-center flex-col md:flex-row">
           {navigation?.map((item, index) => (
             <li key={index}>
-              <Link
+              <a
                 onClick={index >= 1 ? SmoothScroll : null}
-                to={'#' + item.slug_page?.[0]?.text}
+                href={'#' + item.slug_page?.[0]?.text}
               >
                 {item.text_link?.[0]?.text}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
